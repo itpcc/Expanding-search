@@ -19,8 +19,13 @@ $(document).ready(function() {
     //applied from: https://stackoverflow.com/questions/7140691/jquery-cancel-event-on-keypress-escape
     $("#search-input input").on('keyup', function(e){
         if (e.which == 27) { 
-            $('#search-expanding').click();
+            //$('#search-expanding').click(); //cancel bacuase conflict with $("#search-input input").blur
             $('#input').val('');
+            $('#search-expanding').removeClass('expanded');
+            $('#search-input').animate({width: 0}, function(){
+                $('#search-input').hide();
+                $('#icon-search').show();
+            });
         }    
     });  
 
