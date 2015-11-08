@@ -20,12 +20,7 @@ $(document).ready(function() {
     $("#search-input input").on('keyup', function(e){
         if (e.which == 27) { 
             //$('#search-expanding').click(); //cancel bacuase conflict with $("#search-input input").blur
-            $('#input').val('');
-            $('#search-expanding').removeClass('expanded');
-            $('#search-input').animate({width: 0}, function(){
-                $('#search-input').hide();
-                $('#icon-search').show();
-            });
+            $(this).val('').blur();
         }    
     });  
 
